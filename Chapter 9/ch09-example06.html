@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Android Web Application Development - Geolocation example 6</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #mapContainer { height: 100% }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpoxnQbCGPTIcpIJ8YPO3pTNcJX3zbc4c&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function supportsGeo () {
+        if (navigator.geolocation) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function changeDiv (name, data) {
+	    var div = document.getElementById(name);
+	    if(div)
+	    {
+	      div.innerHTML = data;
+	    }
+      }
+
+      function mapMe(thisLat, thisLong) {
+        var myLatlong = new google.maps.LatLng(thisLat, thisLong);
+        var myOptions = {
+          center: new google.maps.LatLng(thisLat, thisLong),
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapContainer"), myOptions);
+        var marker = new google.maps.Marker({
+		      position: myLatlong,
+		      map: map,
+		      title:"Hello World!"
+        });
+      }
+
+      function initialize() {
+        if (supportsGeo()) {
+          myLatitude = "";
+          myLongitude = "";
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+		      myLatitude = position.coords.latitude;
+		      myLongitude = position.coords.longitude;
+            },
+            function(error) {
+              switch(error.code) {
+                case error.TIMEOUT:
+                  alert ('Geolocation returned a timeout error');
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                  alert ('Geolocation returned a position unavailable error');
+                  break;
+                case error.PERMISSION_DENIED:
+                  alert ('Geolocation returned permission denied (did you deny access?)');
+                  break;
+                case error.UNKNOWN_ERROR:
+                  alert ('Geolocation encountered an unknown error');
+                  break;
+              }
+            }
+          );
+          alert("Confirm geolocation access before clicking OK");
+        }
+        mapMe(myLatitude, myLongitude);
+      }
+    </script>
+  </head>
+  <body>
+  <h1>
+  <body onload="initialize()">
+    <div id="mapContainer" style="width:100%; height:100%">
+      <!-- Your map goes here! -->
+    </div>
+  </body>
+</html>

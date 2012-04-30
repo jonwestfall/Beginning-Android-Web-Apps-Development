@@ -1,0 +1,219 @@
+/* 
+  CSS reset code only for the elements that will be 
+  used in our code. We could use a more robust CSS reset
+  solution but I am a firm believer that you should not
+  riddle your stylesheet with code that you have no
+  intention of using in your markup.
+*/
+html, body, h1, h2, h6, p, article, figure, figcaption header, hgroup, section {
+	padding:0;
+	margin:0;
+}
+/* 
+  General global styles to be used throughout the demo 
+*/
+html, body {
+	width:100%;
+	overflow-x:hidden;
+}
+body {
+	font-size:14px;
+	font-family:"Times New Roman", Times, serif;
+	line-height:20px;
+	background:url(bg.png);
+	-webkit-box-shadow: inset 0 -5px 300px rgba(153,99,38,1); /* This inset box-shadow adds gives the page a nice vintage feel to it */
+	box-shadow: inset 0 -5px 300px rgba(153,99,38,1);
+}
+h1, h2 {
+	font-weight:normal;
+}
+h1 {
+	font-size:36px;
+	line-height:42px;
+}
+h2 {
+	font-size:20px;
+}
+h6 {
+	font-size:16px;
+	text-transform:uppercase;
+}
+p {
+	margin:10px 0;
+}
+/*  
+  Header/Mast CSS code
+*/
+#mast {
+	padding:20px 0 0 0;
+	text-align:center;
+	letter-spacing:1px;
+}
+#mast h1 {
+	font-family:'UnifrakturCook', Georgia, "Times New Roman", Times, serif;
+	font-size:62px;
+	line-height:48px;
+}
+#mast h6 {
+	display:none; /* hiding both of the pages subheaders */
+}
+#mast h6:nth-child(3) {
+	display:block; /* displaying the "Tablet Edition" subheader by default */
+}
+#mast time {
+	display:block;
+	margin:10px 0;
+	border-top:double 6px #000;
+	border-bottom:double 6px #000;
+	text-transform:uppercase;
+	font-size:16px;
+	line-height:24px;
+}
+/* 
+  Article/Content styles. 
+  This section will rely heavily on two new features
+  of CSS3: Flexible Box Model and Columns.
+  
+  The Flexible Box Model is probably one of my favorite
+  new features of CSS3. In a nutshell it allows one to 
+  take control of how their page is laid out using a grid
+  of flexible boxes essentially eliminating the need to
+  hack together layouts by inproperly using floats in ones
+  code.
+  
+  CSS3 Columns are another time saving new feature of CSS3
+  and allows a designer/developer to take a block of code
+  and automatically convert it into a column based layout
+  that is just perfect for a newspaper demostration.
+*/
+#content {
+	padding:0 10px;
+	display:-webkit-box; /* here we are using the -webkit-box argument instead of 
+							plain old "box" so our code will work across newer and 
+							older Android browsers*'
+						*/
+	-webkit-box-orient: horizontal; /* setting the box orientation to horizontal
+									   displays the content in this container from 
+									   left to right instead displaying the content
+									   in the traditional way of top to bottom */
+}
+#featured {
+	max-width:50%; /* our featured article will take up half the width of the display */
+	height:100%; /* our featured article will take up all of the available height of the display */
+	box-flex:1; /* tell our child elements to be evenly sized and take up one "box" space */
+	-webkit-box-flex:1;
+}
+#featured .entry {
+	-webkit-column-count: 2; /* this will display our featured content article text in 2 columns */
+	-webkit-column-gap: 20px; /* here we add a harty 20px gap/spacing between our columns */
+	-webkit-column-rule: 1px solid rgba(91,58,21,0.5); /* here we are adding a border to our columns */
+}
+#regular {
+	margin-left:5px;
+	padding-left:10px;
+	max-width:49%;
+	box-flex:1;
+	-webkit-box-flex:1;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+	-webkit-column-rule: 1px solid rgba(91,58,21,0.5);
+	border-left: 1px solid rgba(91,58,21,0.5);	/* here we are adding a border to the #regular container to match the rest of the columns borders */
+}
+#regular article {
+	display:inline; /* displaying our articles inline prevents our articles from stacking on top of each other */
+}
+article h1, article h2 {
+	margin-bottom:10px;
+	font-family:Bevan, "Times New Roman", Times, serif;
+}
+article .entry {
+	text-align:justify; /* to give the page a more realistic feel we will justify the column text */
+} 
+article figure {
+	width:90%;
+	padding:0;
+	margin:10px auto 20px auto;
+}
+article figcaption { 
+	font-style:italic; 
+	text-align:right; 
+}
+
+/*
+  Android Smartphone Devices
+  Here we will use CSS3 media queries to determine
+  the resolution of our screen and present the user 
+  a completely different layout if their viewing
+  does not meet certain requirements.
+  
+  Here we are targeting smartphone devices that will
+  on average have a width of 320px (portrait) and up
+  to 569px (landscape).
+  
+  This layout will display the content in a more
+  commonly used smartphone style layout presenting the
+  user with a list of articles that they can scroll up
+  and down to view.
+*/
+@media screen and (min-width: 320px) and (max-width: 569px) {
+	body {
+		-webkit-box-shadow: inset 0 -5px 50px rgba(153,99,38,1); /* lessen the shadow on the page to adjust to the screens new dimensions */
+		box-shadow: inset 0 -5px 50px rgba(153,99,38,1);
+	}
+	h1 {
+		font-size:20px;  /* lower the size of the header font to accomidate the smaller screen resolution */
+		line-height:24px;
+	}
+	h6 {
+		font-size:12px; /* same as the h1 above it */
+	}
+	#mast h1 {
+		font-family:'UnifrakturCook', Georgia, "Times New Roman", Times, serif;
+		font-size:42px;
+		line-height:42px;
+	}
+	#mast h6:nth-child(2) {
+		display:block; /* since we are dealing with a smaller screen we will show the "Smartphone Edition" subheader */
+	}
+	#mast h6:nth-child(3) {
+		display:none; /* and hide the "Tablet Edition" subheader */
+	}
+	#mast time {
+		font-size:12px;
+		line-height:24px;
+	}
+	section#content {
+		-webkit-box-orient: vertical; /* here we are telling this content to display vertically instead of horizontally */
+		padding-bottom:15px;
+	}
+	#featured {
+		max-width:100%; /* take up the entire width of the screen instead of half of it */
+	}
+	#featured .entry {
+		-webkit-column-count: 1; /* only display our text in a single column, which is more appropriate for our screen real estate */
+		-webkit-column-gap: 0; /* remove the 20px padding around columns */
+		-webkit-column-rule: none; /* remove the border off our columns */
+	}
+	#regular {
+		margin-left:0px;
+		padding-left:0px;
+		max-width:100%; /* like our featured article we will now take up the entire width of the page */
+		-webkit-column-count: 1; /* like our featured article we will display a single column of text */
+		-webkit-column-gap: 0;
+		-webkit-column-rule: none;
+		border-left: none;
+	}
+	#regular article {
+		display:block; /* display our articles as blocks so they appear verticle */
+	}
+	article .entry p, article figure {
+		display:none; /* hide all of our article content so the user is not stuck scrolling into oblivion */
+	}
+	article .entry p:first-child {
+		display:block; /* display only the first paragraph of an article for the user */
+	}
+	article {
+		margin-bottom:10px;
+		border-bottom:2px solid rgba(0,0,0,1);
+	}
+}

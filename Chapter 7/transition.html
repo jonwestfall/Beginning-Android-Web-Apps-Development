@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>This is jQuery's Base Template, Showing off The Transitions</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="one" data-title="First Page">
+
+	<div data-role="header">
+		<h1>The Title</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This is where we put what we want to talk about on this page, it's going to be great</p>		
+	<a href="#two" data-transition="pop">Pop Page 2</A><br>
+	<a href="#two" data-transition="slide">Slide Page 2</A><br>
+	<a href="#two" data-transition="slideup">Slideup Page 2</A><br>
+	<a href="#two" data-transition="slidedown">Slidedown Page 2</A><br>
+	<a href="#two" data-transition="fade">Fade Page 2</A><br>
+	<a href="#two" data-transition="flip">Flip Page 2</A><br>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="two" data-title="Second Page">
+
+	<div data-role="header">
+		<h1>The Title of Page 2</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This is where we put what we want to talk about on this page, it's going to be great</p>		
+	<a href="#" data-rel="back">Back to page 1</A>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
+</html>

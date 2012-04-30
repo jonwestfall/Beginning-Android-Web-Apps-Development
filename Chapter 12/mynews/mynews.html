@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1"
+http-equiv="content-type">
+<title>My News</title>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+function loadnews() {
+     if (window.XMLHttpRequest) { 
+          // Modern browsers use this type of request
+          request = new XMLHttpRequest();
+          } else { 
+          // Old Microsoft Browsers use this type!
+          request = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+     
+     	  request.onreadystatechange=function() {
+          if ( request.readyState == 4 && request.status == 200) {
+             var resp = jQuery.parseJSON(request.responseText);
+             var lister = "<ul>";
+             lister += "<li><A HREF=" + resp.value.items[0].href + ">" + resp.value.items[0].title + "</li>";
+             lister += "<li><A HREF=" + resp.value.items[1].href + ">" + resp.value.items[1].title + "</li>";
+             lister += "<li><A HREF=" + resp.value.items[2].href + ">" + resp.value.items[2].title + "</li>";
+             lister += "<li><A HREF=" + resp.value.items[3].href + ">" + resp.value.items[3].title + "</li>";
+             lister += "<li><A HREF=" + resp.value.items[4].href + ">" + resp.value.items[4].title + "</li>";
+             lister += "</ul>";
+             document.getElementById("thenews").innerHTML = lister;
+               }
+          }
+          
+          request.open("GET","http://pipes.yahoo.com/pipes/pipe.run?_id=4659b1f4f4bfdb96c3775b61be8ca3b8&_render=json",true);
+          request.send();
+	 }
+</script>
+</head>
+<body>
+<span style="font-family: Helvetica,Arial,sans-serif;">Get the News!<br>
+<div id="thenews">
+<h2>...</h2>
+</div>
+<button type="button" onclick="loadnews()">Get The News!</button>
+</span>
+</body>
+</html>

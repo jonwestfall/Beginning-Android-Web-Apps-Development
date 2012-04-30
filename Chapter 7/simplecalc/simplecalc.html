@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title>Simple Calc</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+<link rel="stylesheet" href="themes/simplecalc.css" />
+<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+
+<script type="text/javascript">
+function addnums() {
+	var num1 = document.calc.number1.value;
+	var num2 = document.calc.number2.value;
+	var num3 = num1 + num2;
+	alert(num3);
+}
+
+function subnums() {
+	var num1 = document.calc.number1.value;
+	var num2 = document.calc.number2.value;
+	var num3 = num1 - num2;
+	alert(num3);
+}
+</script>
+</head>
+<body>
+<!-- page -->
+<div data-role="page" id="aboutPage"> 
+  
+  <!--header -->
+  <div data-role="header">
+    <h1>Simple Calc</h1>
+  </div>
+  <!-- /header --> 
+  
+  <!-- content -->
+  <div data-role="content">
+  <form action="#" name="calc" method="post">
+    <p>Enter a number in the first box, one in the second, and then press a button in between to get the answer!</p>
+  <p><input type="number" name="number1" id="number1" placeholder="Number 1">
+  <p><div data-role="controlgroup"><a href="#" data-role="button" onclick="addnums()">+</A><a href="#" data-role="button" onclick="subnums()">-</A></div>
+  <p><input type="number" name="number2" id="number2" placeholder="Number 2">
+  </form>
+  </div>
+  <!-- /content -->
+  
+  <!-- footer --> 
+  <div data-role="footer">
+    <h4>Neat!</h4>
+  </div>
+  <!-- /footer --> 
+</div>
+<!-- /page -->
+
+</body>
+</html>

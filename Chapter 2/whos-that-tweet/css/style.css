@@ -1,0 +1,107 @@
+/**
+  * Who's That Tweet CSS
+  * @author: Rocco Augusto
+  * @file: css/style.css
+**/
+
+/*** RESET ***/
+html, body, header, section, div, p, ul, li, h2 {
+	margin:0;
+	padding:0;
+}
+ul, li {
+	list-style:none;
+}
+/*** GLOBAL CSS ***/
+html, body {
+	width:100%;
+	overflow-x:hidden;
+}
+body {
+	font-size:14px;
+	font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+	background:#06c;
+}
+h2 {
+	font-size:14px;
+}
+
+/*** HEADER ***/
+header {
+	width:100%;
+	font-weight:bold;
+	text-transform:uppercase;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	line-height:40px;
+	background:-webkit-linear-gradient(top, rgba(201,201,201,1) 0%, rgba(135,135,135,1) 100%);
+	box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+header h2 {
+	margin-left:10px;
+}
+.score {
+	float:right;
+	margin-right:10px;
+}
+
+/*** SECTION ***/
+section {
+	margin:20px 10px;
+	padding:10px;
+	border-radius:7px;
+	background:#aaa;
+	box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+section.fail {
+	background:#990000;
+	color:#fff;
+}
+section.win {
+	background:#009900;
+	color:#fff;
+}
+section.fail li, section.win li {
+	border-bottom:1px solid #fff;
+}
+section.fail li:first-child, section.win li:first-child {
+	border-top: 2px groove #fff;
+}
+section #tweet {
+	width:100%;
+	margin-bottom:10px;
+	padding-bottom:10px;
+}
+section .avatar {
+	float:left;
+	width:48px;
+	height:48px;
+}
+section .content {
+	margin-left:58px;
+	min-height:48px;
+}
+section .person {
+	margin-left:42px;
+}
+section ul {
+	width:100%;
+	clear:both;
+}
+section li {
+	margin:0;
+	padding:5px 5px 5px;
+	height:32px;
+	line-height:32px;
+	border-bottom:1px solid #666;
+}
+section li .avatar {
+	width:32px;
+	height:32px;
+}
+section li .avatar img {
+	width:32px;
+	height:32px;
+}
+section li:first-child {
+	border-top: 2px groove #666;
+}

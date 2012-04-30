@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Download our App</title> 
+	<link rel="stylesheet" href="//code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="//code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+
+<script type="text/javascript">
+
+$( '#aboutPage' ).live( 'pageinit',function(event){
+
+	if (navigator.userAgent.match(/android/i)) {
+		document.getElementById("androiddiv").style.display = "block";
+	} 
+	
+	if (navigator.userAgent.match(/iPhone/i)) {
+		document.getElementById("applediv").style.display = "block";
+	}
+});
+</script>
+
+</head> 
+
+<body> 
+
+<div data-role="page" id="aboutPage">
+
+	<div data-role="header">
+		<h1>Our App!</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div id="androiddiv" style="display: none">
+		<p>We have an application you can download in the Android Marketplace!</p>
+		<p align="center"><img src="45_avail_market_logo1.png"></p>
+		</div>
+		<div id="applediv" style="display: none">
+		<p>We have an application you can download in the Apple App Store!</p>
+		<p align="center"><img src="app-store.png"></p>
+		</div>
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>bugjr.com</h4>
+	</div><!-- /footer -->
+	
+</div><!-- /page -->
+
+</body>
+</html>

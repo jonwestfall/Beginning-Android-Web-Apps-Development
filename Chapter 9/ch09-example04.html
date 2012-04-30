@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Android Web Application Development - Geolocation example 3</title>
+    <script type="text/javascript">
+      function supportsGeo () {
+        if (navigator.geolocation) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function changeDiv (name, data) {
+	    var div = document.getElementById(name);
+	    if(div)
+	    {
+	      div.innerHTML = data;
+	    }
+      }
+
+      function checkIn () {
+        var geoData = "";
+        if (supportsGeo()) {
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+		      geoData = position.coords.latitude + ", " + position.coords.longitude;
+            },
+            function(error) {
+              switch(error.code) {
+                case error.TIMEOUT:
+                  alert ('Geolocation returned a timeout error');
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                  alert ('Geolocation returned a position unavailable error');
+                  break;
+                case error.PERMISSION_DENIED:
+                  alert ('Geolocation returned permission denied (did you deny access?)');
+                  break;
+                case error.UNKNOWN_ERROR:
+                  alert ('Geolocation encountered an unknown error');
+                  break;
+              }
+            }
+          );
+          <! -- alert("Confirm geolocation access before clicking OK"); -->
+        } else {
+          geoData = "Your browser does not support HTML5 geolocation";
+        }
+        changeDiv ("myCheckIn",geoData);
+      }
+    </script>
+  </head>
+  <body>
+  <h1>
+    <div id="myCheckIn">
+      <!-- This is where your check-in will display -->
+      <p>Ready to check in...</p>
+    </div>
+
+    <form name="checkInFrm">
+      <input type="button" name="checkInBtn" value="Geolocation Check-In!" onClick="checkIn()">
+  </h1>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1"
+http-equiv="content-type">
+<title>Word of the Day</title>
+<script type="text/javascript">
+function loadword() {
+     if (window.XMLHttpRequest) { 
+          // Modern browsers use this type of request
+          request = new XMLHttpRequest();
+          } else { 
+          // Old Microsoft Browsers use this type!
+          request = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+     
+     	  request.onreadystatechange=function() {
+          if ( request.readyState == 4 && request.status == 200) {
+               document.getElementById("theword").innerHTML = request.responseText;
+               }
+          }
+          
+          request.open("GET","word.txt",true);
+          request.send();
+	 }
+</script>
+</head>
+<body>
+<span style="font-family: Helvetica,Arial,sans-serif;">Get Today's Word
+Of The Day<br>
+<div id="theword">
+<h2>...</h2>
+</div>
+<button type="button" onclick="loadword()">Get The Word!</button>
+</span>
+</body>
+</html>

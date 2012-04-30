@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Android Web Application Development - Geolocation example 2</title>
+    <script type="text/javascript">
+      function supportsGeo () {
+        var geosupport = "Sorry, your brower does not support geolocation";
+        if (navigator.geolocation) {
+          geosupport = "Congratulations, your browswer supports geolocation";
+        }
+        return geosupport;
+      }
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.write(supportsGeo());
+    </script>
+  </body>
+</html>

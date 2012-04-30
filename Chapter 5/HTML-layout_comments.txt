@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>The Daily Droid</title>
+<meta name="description" content="An Android Responsive Web Design demostration.">
+<meta name="author" content="Rocco Augusto">
+
+<!-- Here we set the viewport so the device knows that this page is not one that can scale/zoom -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link href="style.css" rel="stylesheet" type="text/css" >
+
+<!-- Here we pull in two fonts from the Google Font API database -->
+<link href="http://fonts.googleapis.com/css?family=UnifrakturCook:bold" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
+</head>
+
+<!-- 
+  HEADER 
+  We are adding two different sub headings (h6) to this page. 
+  One heading will be for the "Smartphone Edition" of the
+  page and the second will be for the "Tablet Edition" 
+  of the page. Both pages are the same but depending on 
+  the screen size the pages CSS will tell the browser which
+  subheading to display.
+-->
+<header id="mast">
+  <hgroup>
+    <h1>The Daily Droid</h1>
+    <h6>Smartphone Edition</h6>
+    <h6>Tablet Edition</h6>
+  </hgroup>
+  <time datetime="2011-05-29">May 29th, 2011</time>
+</header><!-- /HEADER -->
+
+<section id="content">
+  <!-- 
+  	SECTION: FEATURED ARTICLES 
+  	The featured article would be the main article on the page
+    that will be featured. Think of it in this sense as the 
+    front page story on a newspaper - which makes sense since
+    this demos completed code would be a mock vintage newspaper
+    layout.
+    
+    The article contains several sections. You have the header 
+    section which contains the title of the article as well as 
+    a "figure" or image that would be displayed with the article
+    and any caption text that would go along with it.
+  -->
+  <section id="featured">
+    <article>
+      <header>
+        <h1>Title goes here...</h1>
+        <figure>
+            <img src="ww1647-05.jpg" width="100%" alt="" />
+        	<figcaption>Figure caption...</figcaption>
+        </figure>
+      </header>
+      <div class="entry">
+        <p>Article content goes here...</p>
+      </div>
+    </article><!-- /ARTICLE -->
+  </section><!-- /SECTION: FEATURED ARTICLES -->
+
+  <!-- 
+  	SECTION: REGULAR ARTICLES 
+  	The regular articles on this page will be housed in this 
+    section of the document. The markup of this section is
+    exactly the same as the featured articles section. The only
+    difference will come down to how they are displayed based 
+    off their assigned styles.
+  -->
+  <section id="regular">
+    <article>
+      <header>
+        <h2>Title...</h2>
+      </header>
+      <div class="entry">
+        <p>Body Content...</p>
+      </div>
+    </article><!-- /ARTICLE-->
+  </section><!-- /SECTION: REGULAR ARTICLES -->
+  
+</section><!-- /SECTION: CONTENT -->
+<body>
+</body>
+</html>

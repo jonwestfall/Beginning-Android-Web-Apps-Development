@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Android Web Application Development - Geolocation example 5</title>
+    <script type="text/javascript">
+      function supportsGeo () {
+        if (navigator.geolocation) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function changeDiv (name, data) {
+	    var div = document.getElementById(name);
+	    if(div)
+	    {
+	      div.innerHTML = data;
+	    }
+      }
+
+      function startWatch () {
+        var geoData = "";
+        var watchOptions = { frequency: 5000 };
+        if (supportsGeo()) {
+          geoData = navigator.geolocation.watchPosition(onWatchSuccess, onWatchError, watchOptions);
+        } else {
+		  geoData = "Your browser does not support HTML5 geolocation";
+          changeDiv ("myCheckIn",geoData);
+        }
+      }
+
+	  function onWatchSuccess(position) {
+	    var currentLocation = "";
+	    currentLocation = 'Latitude: ' + position.coords.latitude + ', Longitude: ' + position.coords.longitude;
+	    changeDiv("myLocationWatch",currentLocation);
+	  }
+
+      function onWatchError(error) {
+	    var currentError = "";
+	    currentError = 'Error code: ' + error.code + ', Error message: ' + error.message;
+	    changeDiv("myLocationWatch",currentError);
+	  }
+    </script>
+  </head>
+  <body>
+  <h1>
+    <div id="myLocationWatch">
+      <!-- This is where your check-in will display -->
+      <p>Ready to check in...</p>
+    </div>
+
+    <form name="watchFrm">
+      <input type="button" name="watchBtn" value="Start Watching" onClick="startWatch()">
+  </h1>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Registration Page</title>
+<script type="text/javascript">
+
+function checkusername($name) {
+     if (window.XMLHttpRequest) { 
+          // Modern browsers use this type of request
+          request = new XMLHttpRequest();
+          } else { 
+          // Old Microsoft Browsers use this type!
+          request = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+     
+     	  request.onreadystatechange=function() {
+          if ( request.readyState == 4 && request.status == 200) {
+             document.getElementById("theres").innerHTML = request.response;
+               }
+          }
+          
+          request.open("GET","check_name.php?u=" + $name,true);
+          request.send();
+	 }
+</script>
+</head>
+<body>
+<form name="theform">
+<span style="font-family: Helvetica,Arial,sans-serif;">Register!<br>
+<div id="theres">
+<h2>...</h2>
+</div>
+<input type="text" name="un" onkeyup="checkusername(this.form.un.value)">
+</span></form>
+</body>
+</html>
